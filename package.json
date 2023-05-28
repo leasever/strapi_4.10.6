@@ -1,0 +1,33 @@
+{
+  "name": "store-v-2",
+  "private": true,
+  "version": "0.1.0",
+  "description": "A Strapi application",
+  "scripts": {
+    "develop": "strapi develop",
+    "start": "strapi start",
+    "build": "strapi build",
+    "strapi": "strapi"
+  },
+  "devDependencies": {},
+  "dependencies": {
+    "@strapi/strapi": "4.10.6",
+    "@strapi/provider-upload-cloudinary": "^4.10.6",
+    "@strapi/plugin-users-permissions": "4.10.6",
+    "@strapi/plugin-i18n": "4.10.6",
+    "better-sqlite3": "8.0.1",
+    "pg": "^8.11.0",
+    "stripe": "^12.7.0"
+  },
+  "author": {
+    "name": "A Strapi developer"
+  },
+  "strapi": {
+    "uuid": "7a74866a-8e44-4af7-86f4-f9096173fdbe"
+  },
+  "engines": {
+    "node": ">=14.19.1 <=18.x.x",
+    "npm": ">=6.0.0"
+  },
+  "license": "MIT"
+}
