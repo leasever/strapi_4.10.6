@@ -6,16 +6,12 @@ const { createCoreController } = require("@strapi/strapi").factories;
 module.exports = createCoreController("api::order.order", ({ strapi }) => ({
   async create(ctx) {
     const { products } = ctx.request.body;
-    console.log("products ", products);
     try {
       const lineItems = await Promise.all(
         products.map(async (product) => {
           const item = await strapi
             .service("api::product.product")
             .findOne(product.id);
-
-          console.log("this is item------->", item);
-          console.log("this is product------->", product);
 
           return {
             price_data: {
