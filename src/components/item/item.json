@@ -1,0 +1,28 @@
+{
+  "collectionName": "components_item_items",
+  "info": {
+    "displayName": "item",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "quantity": {
+      "required": true,
+      "type": "biginteger",
+      "max": "999"
+    },
+    "selectedSize": {
+      "type": "json"
+    },
+    "productId": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::product.product"
+    },
+    "name": {
+      "type": "string",
+      "required": true,
+      "maxLength": 100
+    }
+  }
+}
