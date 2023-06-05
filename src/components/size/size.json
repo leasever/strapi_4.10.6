@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_size_sizes",
+  "info": {
+    "displayName": "size",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "val": {
+      "type": "string"
+    },
+    "quantity": {
+      "type": "biginteger"
+    },
+    "price": {
+      "type": "decimal"
+    }
+  }
+}

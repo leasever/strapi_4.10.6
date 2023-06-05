@@ -53,14 +53,6 @@
       },
       "type": "richtext"
     },
-    "size": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "type": "json"
-    },
     "image": {
       "type": "media",
       "multiple": true,
@@ -118,6 +110,16 @@
         }
       },
       "type": "biginteger"
+    },
+    "size": {
+      "type": "component",
+      "repeatable": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "component": "size.size"
     }
   }
 }

@@ -15,16 +15,19 @@
     "name": {
       "type": "string",
       "required": true,
-      "maxLength": 100
+      "maxLength": 100,
+      "minLength": 3
     },
     "phone": {
       "type": "string",
       "required": true,
-      "maxLength": 14
+      "maxLength": 14,
+      "minLength": 9,
+      "regex": "[0-9]+"
     },
     "message": {
-      "type": "string",
-      "maxLength": 500
+      "type": "text",
+      "maxLength": 250
     },
     "email": {
       "type": "email",
@@ -37,11 +40,6 @@
       "component": "item.item",
       "required": true,
       "max": 200
-    },
-    "state": {
-      "type": "boolean",
-      "default": false,
-      "required": true
     }
   }
 }
