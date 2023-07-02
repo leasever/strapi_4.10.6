@@ -34,12 +34,16 @@
       "required": true,
       "maxLength": 254
     },
+    "pdfVoucher": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "files"
+      ]
+    },
     "products": {
-      "type": "component",
-      "repeatable": true,
-      "component": "item.item",
-      "required": true,
-      "max": 200
+      "type": "json"
     }
   }
 }

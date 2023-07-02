@@ -7,7 +7,9 @@
   "options": {},
   "attributes": {
     "val": {
-      "type": "string"
+      "type": "string",
+      "required": true,
+      "unique": false
     },
     "quantity": {
       "type": "biginteger"

@@ -10,47 +10,19 @@
   "options": {
     "draftAndPublish": true
   },
-  "pluginOptions": {
-    "i18n": {
-      "localized": true
-    }
-  },
   "attributes": {
     "name": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
       "type": "string",
       "required": true,
-      "unique": true
+      "unique": true,
+      "maxLength": 99
     },
     "subtitle": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
       "type": "string",
       "required": false,
       "unique": false
     },
-    "price": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "required": false,
-      "type": "decimal"
-    },
     "description": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
       "type": "richtext"
     },
     "image": {
@@ -59,12 +31,7 @@
       "required": true,
       "allowedTypes": [
         "images"
-      ],
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
+      ]
     },
     "thumbnail": {
       "type": "media",
@@ -72,27 +39,9 @@
       "required": true,
       "allowedTypes": [
         "images"
-      ],
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
-    },
-    "original_price": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "type": "decimal"
+      ]
     },
     "slug": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
       "type": "uid",
       "targetField": "name",
       "required": true
@@ -103,23 +52,15 @@
       "target": "api::category.category",
       "mappedBy": "products"
     },
-    "stock": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "type": "biginteger"
+    "quotation_price": {
+      "type": "decimal",
+      "required": false
     },
-    "size": {
-      "type": "component",
-      "repeatable": true,
-      "pluginOptions": {
-        "i18n": {
-          "localized": false
-        }
-      },
-      "component": "size.size"
+    "product_sizes": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::product-size.product-size",
+      "mappedBy": "product"
     }
   }
 }

@@ -2,7 +2,7 @@
   "name": "store-v-2",
   "private": true,
   "version": "0.1.0",
-  "description": "A Strapi application",
+  "description": "App quotations",
   "scripts": {
     "develop": "strapi develop",
     "start": "strapi start",
@@ -10,15 +10,17 @@
     "strapi": "strapi"
   },
   "dependencies": {
-    "@strapi/plugin-i18n": "4.10.7",
-    "@strapi/plugin-users-permissions": "4.10.7",
-    "@strapi/provider-upload-cloudinary": "^4.10.7",
-    "@strapi/strapi": "4.10.7",
-    "pg": "^8.11.0",
-    "stripe": "^12.7.0"
+    "@strapi/plugin-users-permissions": "4.11.3",
+    "@strapi/provider-upload-cloudinary": "^4.11.3",
+    "@strapi/strapi": "4.11.3",
+    "form-data": "^4.0.0",
+    "pdfkit": "^0.13.0",
+    "pg": "^8.11.1",
+    "strapi-plugin-entity-relationship-chart": "^4.1.0"
   },
+  "devDependencies": {},
   "author": {
-    "name": "A Strapi developer"
+    "name": "Abraham Leandro Vega"
   },
   "strapi": {
     "uuid": "7a74866a-8e44-4af7-86f4-f9096173fdbe"
