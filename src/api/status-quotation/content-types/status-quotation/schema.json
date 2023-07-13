@@ -1,0 +1,26 @@
+{
+  "kind": "collectionType",
+  "collectionName": "status_quotations",
+  "info": {
+    "singularName": "status-quotation",
+    "pluralName": "status-quotations",
+    "displayName": "status_quotation",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "status": {
+      "type": "string",
+      "default": "En revisión",
+      "required": true
+    },
+    "quotations": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::quotation.quotation",
+      "mappedBy": "status_quotation"
+    }
+  }
+}

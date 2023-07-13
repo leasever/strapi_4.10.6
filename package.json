@@ -10,13 +10,12 @@
     "strapi": "strapi"
   },
   "dependencies": {
-    "@strapi/plugin-users-permissions": "4.11.3",
-    "@strapi/provider-upload-cloudinary": "^4.11.3",
-    "@strapi/strapi": "4.11.3",
+    "@strapi/plugin-users-permissions": "4.11.5",
+    "@strapi/provider-upload-cloudinary": "^4.11.5",
+    "@strapi/strapi": "4.11.5",
     "form-data": "^4.0.0",
     "pdfkit": "^0.13.0",
-    "pg": "^8.11.1",
-    "strapi-plugin-entity-relationship-chart": "^4.1.0"
+    "pg": "^8.11.1"
   },
   "devDependencies": {},
   "author": {

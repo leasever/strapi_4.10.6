@@ -22,17 +22,20 @@ module.exports = createCoreController(
           );
         }
 
-        const uploadedFileData = await postPdf(fileContent,quotationNumber);
+        const uploadedFileData = await postPdf(fileContent, quotationNumber);
 
         const quotationData = {
           ...data,
           pdfVoucher: [uploadedFileData],
+          status_quotation: {
+            data: null,
+          },
+          code_quotation: quotationNumber,
         };
 
         const quotation = await strapi
           .service("api::quotation.quotation")
           .create({ data: quotationData });
-
         return { quotation };
       } catch (error) {
         ctx.response.status = 500;
@@ -45,17 +48,25 @@ module.exports = createCoreController(
       try {
         const { id } = ctx.params;
         const { data } = ctx.request.body;
-
         const quotation = await strapi
           .service("api::quotation.quotation")
           .findOne(id, { populate: "*" });
+
+        if (data.publishedAt === null) {
+          const quotationDResponse = await strapi
+            .service("api::quotation.quotation")
+            .update(id, {
+              data: { publishedAt: data.publishedAt },
+            });
+          return { data: quotationDResponse };
+        }
 
         if (quotation.pdfVoucher && quotation.pdfVoucher.length > 0) {
           const pdfVoucherId = quotation.pdfVoucher[0].id;
           await deletePdf(pdfVoucherId);
         }
 
-        const quotationNumber = await generateQuotationNumber();
+        const quotationNumber = quotation.code_quotation;
         const fileContent = await createPdfQuotation(data, quotationNumber);
         const fileSizeInMB = fileContent.length / (1024 * 1024);
         if (fileSizeInMB > 5) {
@@ -64,16 +75,21 @@ module.exports = createCoreController(
           );
         }
 
-        const uploadedFileData = await postPdf(fileContent,quotationNumber);
+        const uploadedFileData = await postPdf(fileContent, quotationNumber);
+
         const quotationData = {
           ...data,
           pdfVoucher: [uploadedFileData],
         };
-        const updatedQuotation = await strapi
+        const quotationDResponse = await strapi
           .service("api::quotation.quotation")
           .update(id, { data: quotationData });
 
-        return { quotation: updatedQuotation };
+        const quotationResponse = await strapi
+          .service("api::quotation.quotation")
+          .findOne(id, { populate: "*" });
+
+        return { data: quotationResponse };
       } catch (error) {
         ctx.response.status = 500;
         console.error("Error updating quotation:", error);
